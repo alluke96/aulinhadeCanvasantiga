@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Canvas2</title> 
+	</head>
+	<body>
+		<canvas id="myCanvas" width="800" height="800">
+		</canvas>
+<!--Fill = preenche, Stroke = apenas bordas-->		
+		<script type="text/javascript">
+		var c=document.getElementById("myCanvas");
+		var cxt=c.getContext("2d");
+		
+		//<!--Texto-->
+		cxt.font = "bold 50px calibri"
+		cxt.textBaseline = "top";
+		cxt.fillText("Boneca", 0, 50);
+		
+		//<!--Imagem-->
+		var img = new Image(); 
+		img.src = "http://3.bp.blogspot.com/-jSb2xuGaeWs/T6EtJzqAC9I/AAAAAAAAAa4/aNvmQf34kOc/s640/Notebook-Background.jpg";
+		img.onload = function() {
+		cxt.drawImage(img, 0, 0,200,200);
+		} 
+		
+		/*<!--Conversor de radianos para graus-->
+		<!--var graus = 270; -->
+		<!--var radianos = graus * (Math.PI / 180); -->
+		
+		<!--Circulo-->*/
+		
+		cxt.beginPath(); 
+		cxt.arc(400, 100, 60, 0, Math.PI*2, false); 
+		cxt.closePath(); 
+		cxt.stroke();
+		
+		cxt.beginPath(); 
+		cxt.arc(400, 100, 60, 4, Math.PI*2, false); 
+		cxt.closePath(); 
+		cxt.fill();
+		
+		cxt.beginPath(); 
+		cxt.arc(370, 90, 20, 0, Math.PI*2, false); 
+		cxt.closePath(); 
+		cxt.stroke(); 
+		
+		//<!--bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y); -->
+		cxt.lineWidth = 10; 
+		cxt.beginPath(); 
+		cxt.moveTo(350, 70); 
+		cxt.bezierCurveTo(380, 80, 370, 45, 400, 80); 
+		cxt.stroke();
+		</script>
+</body>
+</html>
